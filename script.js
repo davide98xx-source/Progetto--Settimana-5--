@@ -40,3 +40,65 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+//costanti i nostri servizi
+const cardsServizi = document.querySelectorAll("#servizi .cards");
+const movimentoRidotto = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+//i nostri servizi scroll
+
+if ("IntersectionObserver" in window && !movimentoRidotto && cardsServizi.length) {
+  document.body.classList.add("reveal-enabled");
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  cardsServizi.forEach((card) => observer.observe(card));
+}
+//costanti modulo
+const preventivoDialog = document.querySelector("#preventivoDialog");
+const apriPreventivo = document.querySelector("#apriPreventivo");
+const chiudiPreventivo = document.querySelector("#chiudiPreventivo");
+const formPreventivo = preventivoDialog.querySelector("form");
+const pulsanteInvio = formPreventivo.querySelector(
+  'button[type="submit"]'
+);
+//modulo
+apriPreventivo.addEventListener("click", () => {
+  preventivoDialog.showModal();
+});
+
+chiudiPreventivo.addEventListener("click", () => {
+  preventivoDialog.close();
+});
+
+preventivoDialog.addEventListener("click", (event) => {
+  if (event.target === preventivoDialog) {
+    preventivoDialog.close();
+  }
+});
+
+formPreventivo.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  pulsanteInvio.disabled = true;
+  pulsanteInvio.textContent = "Grazie!";
+
+  setTimeout(() => {
+    preventivoDialog.close();
+    formPreventivo.reset();
+    pulsanteInvio.disabled = false;
+    pulsanteInvio.textContent = "Invia richiesta";
+  }, 2000);
+});
