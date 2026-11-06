@@ -23,7 +23,6 @@
         <a href="#servizi">Servizi</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contatti">Contatti</a>
-
         <button id="themeButton" type="button" aria-label="Attiva modalità notte">
           <i id="themeIcon" class="fa-solid fa-moon" aria-hidden="true"></i>
         </button>
@@ -39,9 +38,40 @@
           Siamo uno studio creativo. Identità visiva, web e motion graphic
           per chi vuole farsi notare.
         </p>
-        <button class="richiediPreventivo" type="button">
+        <button id="apriPreventivo" class="richiediPreventivo" type="button">
           Richiedi preventivo
         </button>
+        <dialog id="preventivoDialog" class="preventivo-dialog" aria-labelledby="titoloPreventivo">
+          <button id="chiudiPreventivo" class="chiudi-preventivo" type="button" aria-label="Chiudi il modulo">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+
+          <h2 id="titoloPreventivo">Richiedi un preventivo</h2>
+          <p>Raccontaci il tuo progetto</p>
+
+          <form>
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+
+            <label for="servizio">Servizio</label>
+            <select id="servizio" name="servizio" required>
+              <option value="" selected disabled>Seleziona un servizio</option>
+              <option value="identita-visiva">Identità visiva</option>
+              <option value="web-design">Web design</option>
+              <option value="motion-graphic">Motion graphic</option>
+            </select>
+
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
+
+            <button class="invia-preventivo" type="submit">
+              Invia richiesta
+            </button>
+          </form>
+        </dialog>
       </div>
     </section>
 
@@ -86,27 +116,60 @@
         </article>
       </div>
     </section>
+
+    <section class="services" id="servizi">
+      <h2>I nostri servizi</h2>
+
+      <div class="cards-container">
+        <article class="cards">
+          <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+          <h3>Identità visiva</h3>
+          <p>
+            Logo, palette, tipografia e linee guida per un brand coerente,
+            riconoscibile e duraturo.
+          </p>
+        </article>
+
+        <article class="cards">
+          <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+          <h3>Web design</h3>
+          <p>
+            Siti vetrina e landing page responsive, accessibili e ottimizzate
+            per dispositivi mobili.
+          </p>
+        </article>
+
+        <article class="cards">
+          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <h3>Motion graphic</h3>
+          <p>
+            Animazioni e brevi video per raccontare prodotti, social e
+            campagne pubblicitarie.
+          </p>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer id="site-footer">
-  <div class="footer-content">
-    <div class="footer-brand">
-      <div class="logo">
-        <i class="fa-solid fa-seedling" aria-hidden="true"></i>
-        <h2>Bloom</h2>
+  <footer id="site-footer" id-contatti="contatti">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          <h2>Bloom</h2>
+        </div>
+        <p>Studio di design fondato nel 2026.</p>
       </div>
-      <p>Studio di design fondato nel 2026.</p>
-    </div>
 
-    <div class="iconFooter">
-      <i class="fa-solid fa-camera" aria-hidden="true"></i>
-      <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-      <i class="fa-brands fa-behance" aria-hidden="true"></i>
-    </div>
+      <div class="iconFooter">
+        <i class="fa-solid fa-camera" aria-hidden="true"></i>
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        <i class="fa-brands fa-behance" aria-hidden="true"></i>
+      </div>
 
-    <p class="copiright">© 2026 Bloom</p>
-  </div>
-</footer>
+      <p class="copiright">© 2026 Bloom</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
