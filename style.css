@@ -1,0 +1,365 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #fff;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+body.notte {
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Contenuto centrato */
+main {
+  width: 92%;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Header sticky */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+body.notte #site-header {
+  background-color: #1a1a1a;
+}
+
+#site-header.is-scrolling-down,
+body.notte #site-header.is-scrolling-down {
+  background-color: hsl(150, 60%, 30%);
+}
+
+#contenitoreHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 0 12px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 0;
+  color: hsl(150, 60%, 30%);
+}
+
+#site-header.is-scrolling-down .logo {
+  color: #000;
+}
+
+body.notte #site-header .logo {
+  color: #fff;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Navigazione */
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.nav a {
+  font-size: 1rem;
+}
+
+.nav a:hover {
+  color: hsl(150, 60%, 30%);
+}
+
+#site-header.is-scrolling-down .nav a:hover {
+  color: #fff;
+}
+
+/* Pulsante giorno/notte */
+.nav button {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: hsl(150, 60%, 30%);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-radius 0.2s,
+    background-color 0.2s,
+    color 0.2s;
+}
+
+body.notte .nav button,
+#site-header.is-scrolling-down .nav button {
+  color: #fff;
+}
+
+.nav button:hover,
+.nav button:focus-visible,
+body.notte .nav button:hover,
+body.notte .nav button:focus-visible,
+#site-header.is-scrolling-down .nav button:hover,
+#site-header.is-scrolling-down .nav button:focus-visible {
+  border-radius: 50%;
+  background-color: hsl(150, 60%, 90%);
+  color: hsl(150, 60%, 30%);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  min-height: clamp(420px, 65vh, 680px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: hsl(150, 60%, 30%);
+  color: #fff;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: 2rem;
+}
+
+.hero-subtitle {
+  margin: 0 0 24px;
+  font-size: 1rem;
+}
+
+/* Pulsante CTA */
+.richiediPreventivo {
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  background-color: #fff;
+  color: hsl(150, 60%, 30%);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.richiediPreventivo:hover {
+  border-color: #1f1f1f;
+  background-color: #1f1f1f;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio */
+.services h2 {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cards {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 1.2rem;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #1f1f1f;
+  transition: transform 0.2s;
+  margin-bottom: 20px;
+}
+
+.cards:hover {
+  transform: translateY(-6px);
+}
+
+.immagineCard {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Due card per riga */
+@media (min-width: 768px) {
+  #contenitoreHeader {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .cards {
+    flex-basis: 48%;
+  }
+}
+
+/* Tre card per riga */
+@media (min-width: 992px) {
+  .cards {
+    flex-basis: 31%;
+  }
+}
+
+#site-footer {
+  background-color: #1f1f1f;
+}
+
+#site-footer .logo {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding-top: 30px;
+  font-size: 1.5rem;
+}
+
+#site-footer .logo h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+#site-footer p {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.iconFooter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+#site-footer .iconFooter i {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.copiright {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  color: #fff;
+  padding-bottom: 20px;
+  margin-bottom: -5px;
+}
+
+@media (min-width: 768px) {
+  #site-footer > .footer-content {
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    padding: 16px 20px;
+  }
+
+  #site-footer .footer-brand {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #site-footer .logo {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  #site-footer .logo h2 {
+    padding: 0;
+  }
+
+  #site-footer .footer-brand p {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+
+  #site-footer .iconFooter {
+    width: auto;
+    flex: 1;
+    justify-content: center;
+  }
+
+  #site-footer .copiright {
+    display: block;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
