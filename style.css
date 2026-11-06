@@ -123,7 +123,7 @@ body.notte #site-header .logo {
   border: 0;
   border-radius: 0;
   background-color: transparent;
-  color: hsl(150, 60%, 30%);
+  color: #000;
   font: inherit;
   cursor: pointer;
   transition:
@@ -134,7 +134,7 @@ body.notte #site-header .logo {
 
 body.notte .nav button,
 #site-header.is-scrolling-down .nav button {
-  color: #fff;
+  color: #000;
 }
 
 .nav button:hover,
@@ -190,6 +190,77 @@ body.notte .nav button:focus-visible,
   background-color: #1f1f1f;
   color: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+#titoloPreventivo {
+  color: hsl(150, 60%, 30%);
+}
+
+.preventivo-dialog {
+  position: relative;
+  width: 90%;
+  max-width: 560px;
+  max-height: 90vh;
+  margin: auto;
+  padding: 32px;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 16px;
+  background-color: #fff;
+  color: #1a1a1a;
+}
+
+.preventivo-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+body.notte .preventivo-dialog {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.chiudi-preventivo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border: 0;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.preventivo-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preventivo-dialog input,
+.preventivo-dialog select,
+.preventivo-dialog textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #1a1a1a;
+  font: inherit;
+}
+
+.invia-preventivo {
+  align-self: flex-start;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 24px;
+  background-color: hsl(150, 60%, 30%);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
 }
 
 /* Portfolio */
@@ -250,6 +321,50 @@ body.notte .nav button:focus-visible,
   .cards {
     flex-basis: 31%;
   }
+}
+
+/*
+ <div>
+        <h2 #id="servizzi">I nostri servizi</h2>
+        <div class="cards">
+          <i class="fa-solid fa-pen-nib"></i>
+        </div>
+        <div class="cards">
+          <i class="fa-solid fa-desktop"></i>
+        </div>
+        <div class="cards">
+          <i class="fa-solid fa-film"></i>
+        </div>
+      </div>
+*/
+
+#servizi .cards{
+  background-color: #F8F8F8;
+}
+
+#servizi h2{
+  color:hsl(150, 60%, 30%);
+  font-size: 2rem;
+}
+
+#servizi i{
+  color: hsl(150, 60%, 30%);
+  font-size: 2rem;
+}
+
+.reveal-enabled #servizi .cards {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-enabled #servizi .cards.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-enabled #servizi .cards.is-visible:hover {
+  transform: translateY(-6px);
 }
 
 #site-footer {
